@@ -10,7 +10,7 @@ $footer-link-hover: hsl(40, 30%, 90%);
 
 $card-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 $card-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.12);
-$lift: -12px;
+$lift: -10px;
 
 // === Mixin (definisci almeno @mixin card-elevata o equivalente) ===
 @mixin card-alzata {
@@ -36,16 +36,15 @@ $lift: -12px;
 
   .navbar-toggler {
     border: 1px solid white;
+    cursor: pointer;
   }
 
   .navbar-toggler:focus {
     border: 4px solid white;
   }
 
-  .na
-
   .navbar-toggler-icon {
-    // Questo rende l'icona bianca (se parti da un'icona scura) o viceversa
+    //icona scura diventa chiara
     filter: invert(1) brightness(200%);
   }
 }
@@ -54,6 +53,11 @@ $lift: -12px;
   height: 80vh;
   background-color: $primary;
   color: white;
+
+  .btn:hover {
+    @include card-alzata;
+    background-color: $dark-bg;
+  }
 }
 
 .card {
@@ -61,6 +65,31 @@ $lift: -12px;
   background-color: white;
 }
 
-footer{
+#contatti {
+  background-color: #f8f9fa;
+
+  .btn {
+    background-color: $primary;
+    border-color: $primary;
+    overflow-anchor: none;
+
+  }
+
+  .btn:hover {
     background-color: $dark-bg;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 0.25rem hsla(20, 30%, 35%, 0.25);
+  }
+}
+
+footer {
+  background-color: $dark-bg;
+
+  h5 {
+    color: white;
+  }
 }

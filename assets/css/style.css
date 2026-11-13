@@ -7,11 +7,12 @@
 }
 .navbar .navbar-toggler {
   border: 1px solid white;
+  cursor: pointer;
 }
 .navbar .navbar-toggler:focus {
   border: 4px solid white;
 }
-.navbar .na .navbar-toggler-icon {
+.navbar .navbar-toggler-icon {
   filter: invert(1) brightness(200%);
 }
 
@@ -19,6 +20,19 @@
   height: 80vh;
   background-color: hsl(20, 30%, 35%);
   color: white;
+}
+#hero .btn:hover {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#hero .btn:hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+#hero .btn:hover {
+  background-color: hsl(20, 20%, 15%);
 }
 
 .card {
@@ -28,15 +42,35 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-10px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 .card {
   background-color: white;
 }
 
+#contatti {
+  background-color: #f8f9fa;
+}
+#contatti .btn {
+  background-color: hsl(20, 30%, 35%);
+  border-color: hsl(20, 30%, 35%);
+  overflow-anchor: none;
+}
+#contatti .btn:hover {
+  background-color: hsl(20, 20%, 15%);
+}
+#contatti .form-control:focus,
+#contatti .form-select:focus {
+  border-color: hsl(20, 30%, 35%);
+  box-shadow: 0 0 0 0.25rem hsla(20, 30%, 35%, 0.25);
+}
+
 footer {
   background-color: hsl(20, 20%, 15%);
+}
+footer h5 {
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
