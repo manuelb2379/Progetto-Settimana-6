@@ -47,6 +47,102 @@ $lift: -10px;
     //icona scura diventa chiara
     filter: invert(1) brightness(200%);
   }
+
+  .nav-item:hover {
+    background-color: $primary;
+    border-radius: 10px;
+  }
+}
+
+#themeToggle {
+  color: #ffffff;
+  font-size: 1.8em; // Rende il bottone (e l'icona dentro) grande 2 volte la dimensione normale
+  background-color: transparent;
+  border-color: transparent;
+
+  // Effetto hover con il tuo $primary
+  &:hover {
+    background-color: $primary !important;
+    border-color: $primary !important;
+    color: #ffffff !important;
+  }
+
+  // Per sicurezza, se resta in focus dopo il click
+  &:focus,
+  &:active {
+    box-shadow: none !important;
+    background-color: transparent;
+    color: #ffffff;
+  }
+}
+
+//dark mode
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+
+  // Navbar in dark mode
+  .navbar {
+    background-color: hsl(20, 20%, 10%) !important;
+
+    .navbar-brand,
+    .nav-link {
+      color: #fff !important;
+    }
+    
+  }
+
+  // Hero section leggermente più scura
+  #hero {
+    background-color: hsl(20, 25%, 20%) !important;
+  }
+
+  // Sezione servizi e sezioni generali
+  section {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  // Card dei progetti e servizi
+  .card {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #2c2c2c !important;
+
+    .card-text {
+      color: #b0b0b0 !important;
+    }
+  }
+
+  // Form contatti nella dark mode
+  #contatti {
+    background-color: #181818 !important;
+
+    .form-control,
+    .form-select {
+      background-color: #2a2a2a !important;
+      color: #fff !important;
+      border-color: #444 !important;
+
+      &::placeholder {
+        color: #888;
+      }
+    }
+  }
+
+  // Modale dei dettagli progetto
+  .modal-content {
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+    border-color: #333 !important;
+
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+  }
+}
+body.dark-mode #modalDesc {
+  color: white!important;
 }
 
 #hero {
@@ -72,7 +168,6 @@ $lift: -10px;
     background-color: $primary;
     border-color: $primary;
     overflow-anchor: none;
-
   }
 
   .btn:hover {
@@ -83,6 +178,31 @@ $lift: -10px;
   .form-select:focus {
     border-color: $primary;
     box-shadow: 0 0 0 0.25rem hsla(20, 30%, 35%, 0.25);
+  }
+}
+
+#lavori {
+  .btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $dark-bg !important;
+      border-color: $dark-bg !important;
+      color: #ffffff !important;
+    }
+
+    &.active,
+    &:active,
+    &:focus,
+    &.active:hover,
+    &.active:focus {
+      background-color: $dark-bg !important;
+      border-color: $dark-bg !important;
+      color: #ffffff !important;
+      box-shadow: none !important; // Rimuove l'alone blu di focus di Bootstrap
+    }
   }
 }
 

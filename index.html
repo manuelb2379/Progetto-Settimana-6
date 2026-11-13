@@ -7,6 +7,7 @@
   <title>Atelier — Studio di architettura</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -19,12 +20,20 @@
         <a class="navbar-brand" href="#">Atelier</a>
 
         <!-- Pulsante Hamburger a destra -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+         <div class="d-flex align-items-center gap-2 ms-auto me-md-2">
+          
+          <button id="themeToggle" class="btn btn-outline-secondary btn-sm" aria-label="Cambia tema">
+            <i class="fas fa-moon"></i>
+          </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        </div>
+
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="#hero">Studio</a>
@@ -33,11 +42,14 @@
               <a class="nav-link" href="#servizi">Servizi</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#lavori">Progetti recenti</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#contatti">Contatti</a>
             </li>
           </ul>
         </div>
-      </div>
+
       </div>
     </nav>
   </header>
@@ -48,9 +60,9 @@
       <h1 class="py-3">Architettura per spazi che parlano</h1>
       <p class="py-3">Progettiamo case, uffici e spazi commerciali con attenzione alla luce, ai materiali e al contesto.
       </p>
-      <button type="button" class="btn text-white btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
+      <a href="#contatti" class="btn text-white btn-lg">
         Inizia un progetto
-      </button>
+      </a>
     </div>
 
   </section>
@@ -63,9 +75,9 @@
         <h2 class="title">I nostri servizi</h2>
         <p>Sei aree di lavoro, una sola attenzione alla qualità.</p>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row">
 
-          <div class="col">
+          <div class="col-12 col-sm-6 col-lg-4 mb-4">
             <article class="card h-100 text-center">
               <div>
                 <div class="card-body">
@@ -78,7 +90,7 @@
             </article>
           </div>
 
-          <div class="col">
+          <div class="col-12 col-sm-6 col-lg-4 mb-4">
             <article class="card h-100 text-center">
               <div>
                 <div class="card-body">
@@ -91,7 +103,7 @@
             </article>
           </div>
 
-          <div class="col">
+          <div class="col-12 col-sm-6 col-lg-4 mb-4">
             <article class="card h-100 text-center">
               <div>
                 <div class="card-body">
@@ -104,7 +116,7 @@
             </article>
           </div>
 
-          <div class="col">
+          <div class="col-12 col-sm-6 col-lg-4 mb-4">
             <article class="card h-100 text-center">
               <div>
                 <div class="card-body">
@@ -117,7 +129,7 @@
             </article>
           </div>
 
-          <div class="col">
+          <div class="col-12 col-sm-6 col-lg-4 mb-4">
             <article class="card h-100 text-center">
               <div>
                 <div class="card-body">
@@ -131,7 +143,7 @@
             </article>
           </div>
 
-          <div class="col">
+          <div class="col-12 col-sm-6 col-lg-4 mb-4">
             <article class="card h-100 text-center">
               <div>
                 <div class="card-body">
@@ -146,6 +158,25 @@
 
         </div>
 
+      </div>
+    </section>
+
+    <section id="lavori" class="lavori py-5">
+      <div class="container">
+        <h2 class="title text-center mb-4">I nostri progetti recenti</h2>
+
+        <!-- Filtri aggiornati con le categorie dello studio di architettura -->
+        <div id="filtri" class="mb-4 text-center">
+          <button type="button" class="btn btn-outline-primary me-2 mb-2 active" data-categoria="tutti">Tutti</button>
+          <button type="button" class="btn btn-outline-primary me-2 mb-2"
+            data-categoria="residenziale">Residenziale</button>
+          <button type="button" class="btn btn-outline-primary me-2 mb-2" data-categoria="interior">Interior
+            design</button>
+          <button type="button" class="btn btn-outline-primary me-2 mb-2"
+            data-categoria="ristrutturazione">Ristrutturazione</button>
+        </div>
+
+        <div class="row" id="productRow"></div>
       </div>
     </section>
 
@@ -207,20 +238,15 @@
   </main>
 
   <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle"></h5>
+          <h5 class="modal-title fw-bold" id="modalTitle">Titolo Progetto</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
         </div>
         <div class="modal-body">
-          <img id="modalImg" class="img-fluid rounded mb-3" alt="">
-          <p id="modalDesc"></p>
-          <p class="fw-bold fs-5 mb-0" id="modalPrice"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-          <button type="button" class="btn btn-success">Aggiungi al carrello</button>
+          <img id="modalImg" class="img-fluid rounded mb-3 w-100" style="max-height: 400px; object-fit: cover;" alt="">
+          <p id="modalDesc" class="text-muted mb-0"></p>
         </div>
       </div>
     </div>
@@ -241,8 +267,9 @@
           <h5 class="fw-bold mb-2">Link</h5>
           <ul class="list-unstyled">
             <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Studio</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Servizi</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contatti</a></li>
+            <li class="mb-2"><a href="#servizi" class="text-white-50 text-decoration-none">Servizi</a></li>
+            <li class="mb-2"><a href="#lavori" class="text-white-50 text-decoration-none">Progetti recenti</a></li>
+            <li class="mb-2"><a href="#contatti" class="text-white-50 text-decoration-none">Contatti</a></li>
           </ul>
         </div>
 
@@ -275,3 +302,4 @@
 </body>
 
 </html>
+
